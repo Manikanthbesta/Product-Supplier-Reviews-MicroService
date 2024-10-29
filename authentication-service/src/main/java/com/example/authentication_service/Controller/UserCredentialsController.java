@@ -32,7 +32,7 @@ public class UserCredentialsController {
     }
 
     @PostMapping("/validate/user")
-    public String getToken(@RequestParam UserCredentialsEntity user) {
+    public String getToken(@RequestBody UserCredentialsEntity user) {
         System.out.println("user: " + user);
         Authentication authenticate = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(user.getName(), user.getPassword()));

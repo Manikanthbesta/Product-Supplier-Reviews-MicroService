@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://registry-sr:8763/eureka/
 
 server:
   port: 8222
@@ -17,23 +17,31 @@ spring:
           enabled: true
       routes:
         - id: Product
-          uri: http://localhost:9091/products
+          uri: http://product-sr:9091/products
           predicates:
             - Path=/products/**
 
         - id: Supplier
-          uri: http://localhost:9092/suppliers
+          uri: http://supplier-sr:9092/suppliers
           predicates:
             - Path=/suppliers/**
 
         - id: Reviews
-          uri: http://localhost:9093
+          uri: http://review-sr:9093
           predicates:
             - Path=/reviews/**
+
+        - id: authentication-service
+          uri: http://authentication-service:8090/mydb
+          predicates:
+            - Path=/api/auth/**
       routes[0]:
         filters[0]: AuthenticationFilter
       routes[1]:
         filters[0]: AuthenticationFilter
+      routes[2]:
+        filters[0]: AuthenticationFilter
+
 
 
 #  spring:
