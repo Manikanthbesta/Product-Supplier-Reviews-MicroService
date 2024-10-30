@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Product" />
         <module name="authentication-service" />
+        <module name="Supplier" />
+        <module name="Api-GateWay" />
         <module name="Reviews" />
         <module name="InventoryServer" />
       </profile>
@@ -15,9 +17,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Api-GateWay" options="-parameters" />
       <module name="InventoryServer" options="-parameters" />
       <module name="Product" options="-parameters" />
       <module name="Reviews" options="-parameters" />
+      <module name="Supplier" options="-parameters" />
       <module name="authentication-service" options="-parameters" />
     </option>
   </component>

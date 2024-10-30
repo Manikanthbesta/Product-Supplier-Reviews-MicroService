@@ -14,7 +14,7 @@ services:
     build: ./Api-GateWay
     container_name: api-gateway-sr
     ports:
-      - "9094:9094"
+      - "8222:8222"
     networks:
       - app-network
     depends_on:
